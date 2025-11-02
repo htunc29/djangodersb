@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    {%block baslik%}
+    {%endblock%}
+  </title>
+  {%load static%}
+  <link rel="stylesheet" href="{%static 'css/style.css'%}">
+</head>
+<body>
+  <header>
+    <h1>Django Yol</h1>
+    <div class="searchbar">
+      <input type="search" placeholder="Marka yada ürün adı yazınız..." name="" id="">
+    </div>
+    <div class="authbar">
+      <button>Giriş Yap</button>
+      <button>Kayıt Ol</button>
+    </div>
+  </header>
+  <nav>
+    <a href="{%url 'anasayfa' %}">Anasayfa</a>
+    <a href="{% url 'kategori' 'giyim' %}">Giyim</a>
+    <a href="{% url 'kategori' 'elektronik' %}">Elektronik</a>
+    <a href="{% url 'kategori' 'Kozmetik' %}">Kozmetik</a>
+    <a href="{% url 'kategori' 'Ev-esyasi' %}">Ev Eşyası</a>
+  </nav>
+  {%block icerik%}
+  {%endblock%}
+
+</body>
+
+</html>

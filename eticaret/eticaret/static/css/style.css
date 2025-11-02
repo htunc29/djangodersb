@@ -1,0 +1,89 @@
+*{
+  font-family: "poppins",sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  background:linear-gradient(135deg,rgb(245, 245, 245) 40%,rgb(241, 241, 241) 100%);
+  max-width: 80%;
+  margin: auto;
+}
+header{
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1{
+  color: orangered;
+  font-size: 50px;
+}
+.authbar button{
+ background-color: orangered;
+ padding: 10px;
+ color: white;
+ font-weight: bold;
+ border: none;
+}
+nav{
+  padding: 10px 0px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+nav a {
+  text-decoration: none;
+  color: black;
+}
+nav a:hover{
+  color: orangered;
+}
+.searchbar{
+  width: 40%;
+}
+.searchbar input{
+  width: 100%;
+  background-color: white;
+  padding: 5px;
+  outline: none;
+  border:2px solid #ccc
+}
+.searchbar input:focus{
+  border:2px solid orangered;
+  transition: all 0.3s ease-in-out;
+}
+.card{
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.12);
+}
+.card-header{
+  position: relative;
+  padding: 10px;
+}
+.card-banner{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: orangered;
+  color: white;
+  text-align: center;
+  left: 0;
+}
+.card-header img{
+  width: 100%;
+}
+.card-body{
+  padding: 20px;
+}
+section{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 10px;
+  padding: 20px;
+}
+.price{
+  color: forestgreen;
+  font-weight: bold;
+}

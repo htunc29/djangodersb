@@ -1,0 +1,23 @@
+{%extends 'eticaret/base.html'%}
+
+{%block baslik%}
+  Anasayfa
+{%endblock%}
+
+
+{%block icerik%}
+  <section>
+  {%for urun in urunler%}
+    <div class="card">
+      <div class="card-header">
+        <img src="{{urun.resimler.0}}" alt="{{urun.urun_adi}}"/>
+        <div class="card-banner">En çok satılan</div>
+      </div>
+      <div class="card-body">
+          <p class="product-name">{{urun.urun_adi}}</p>
+          <p class="price">{{urun.fiyat}} ₺</p>
+      </div>
+    </div>
+  {%endfor%}
+  </section>
+{%endblock%}
