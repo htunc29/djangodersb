@@ -22,7 +22,6 @@
    - Sanal Ortam Oluşturma
    - Django Kurulumu
    - İlk Proje (startproject)
-   - Veritabanı ve Admin Panel
 
 2. [App Oluşturma](#-başlangıç-yeni-app-oluşturma)
    - startapp Komutu
@@ -247,36 +246,7 @@ Running migrations:
 
 ---
 
-## 👤 Admin Paneli İçin Süper Kullanıcı
 
-```bash
-python manage.py createsuperuser
-```
-
-Sırasıyla şunları soracak:
-
-```
-Username: admin
-Email: admin@example.com
-Password: ••••••••
-Password (again): ••••••••
-```
-
-Şimdi sunucuyu tekrar başlatın:
-
-```bash
-python manage.py runserver
-```
-
-Admin paneline girin:
-
-```
-http://127.0.0.1:8000/admin/
-```
-
-Oluşturduğunuz kullanıcı adı ve şifre ile giriş yapın! 🎉
-
----
 
 ## 📊 Proje Başlatma Akış Şeması
 
