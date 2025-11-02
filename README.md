@@ -16,12 +16,278 @@
 
 ## 📚 Bu Derste Neler Öğreneceğiz?
 
+✅ Django projesi başlatma (startproject)  
+✅ Sanal ortam oluşturma ve yönetme  
 ✅ Yeni bir Django app oluşturma  
 ✅ HTML sayfaları (template) hazırlama  
 ✅ Sayfalara veri gönderme  
 ✅ Listelerle çalışma (for döngüsü)  
 ✅ Koşullu durumlar (if-else)  
 ✅ Sayfa linkleri oluşturma  
+
+---
+
+## 🎬 Sıfırdan Django Projesi Başlatma
+
+### 📦 Gereksinimler
+
+Başlamadan önce bilgisayarınızda bunların olduğundan emin olun:
+
+- ✅ Python 3.8 veya üzeri
+- ✅ pip (Python paket yöneticisi)
+- ✅ Bir kod editörü (VS Code önerilir)
+
+### 1️⃣ Python Kontrolü
+
+Terminal'i açın ve Python'un yüklü olup olmadığını kontrol edin:
+
+```bash
+python --version
+# veya
+python3 --version
+```
+
+**Çıktı şöyle olmalı:** `Python 3.11.0` (veya benzeri)
+
+---
+
+## 🌐 Sanal Ortam Oluşturma (Virtual Environment)
+
+> 💡 **Sanal Ortam Nedir?** Her proje için ayrı bir Python ortamı oluşturur. Böylece projelerinizin paketleri birbirine karışmaz!
+
+### Windows için:
+
+```bash
+# 1. Proje klasörünü oluştur
+mkdir djangokurs
+cd djangokurs
+
+# 2. Sanal ortam oluştur
+python -m venv sanalortam
+
+# 3. Sanal ortamı aktifleştir
+sanalortam\Scripts\activate
+```
+
+### Mac/Linux için:
+
+```bash
+# 1. Proje klasörünü oluştur
+mkdir djangokurs
+cd djangokurs
+
+# 2. Sanal ortam oluştur
+python3 -m venv sanalortam
+
+# 3. Sanal ortamı aktifleştir
+source sanalortam/bin/activate
+```
+
+**Başarılı olduysa** terminal başında `(sanalortam)` yazısını göreceksiniz:
+
+```bash
+(sanalortam) C:\Users\Kullanici\djangokurs>
+```
+
+---
+
+## 📥 Django Kurulumu
+
+Sanal ortam aktif iken Django'yu kurun:
+
+```bash
+# Django'nun en son versiyonunu kur
+pip install django
+
+# Kurulumu kontrol et
+django-admin --version
+```
+
+**Çıktı:** `5.0` (veya benzer bir versiyon numarası)
+
+> 💡 **İpucu:** Tüm paketleri görmek için `pip list` komutunu kullanabilirsiniz.
+
+---
+
+## 🚀 Django Projesi Oluşturma
+
+### Projeyi Başlat
+
+```bash
+django-admin startproject eticaret
+```
+
+> 💡 **Ne yaptık?** `eticaret` adında yeni bir Django projesi oluşturduk!
+
+### Oluşturulan Klasör Yapısı
+
+```
+djangokurs/
+│
+├── sanalortam/              # Sanal ortam klasörü
+│
+└── eticaret/                # 👈 Yeni projemiz
+    ├── eticaret/            # Ana proje klasörü
+    │   ├── __init__.py      # Python paketi işareti
+    │   ├── settings.py      # ⚙️ Proje ayarları
+    │   ├── urls.py          # 🔗 URL yönlendirmeleri
+    │   ├── asgi.py          # ASGI yapılandırması
+    │   └── wsgi.py          # WSGI yapılandırması
+    │
+    └── manage.py            # 🔧 Django yönetim komutları
+```
+
+### Proje Klasörüne Gir
+
+```bash
+cd eticaret
+```
+
+---
+
+## ⚡ İlk Çalıştırma
+
+### Geliştirme Sunucusunu Başlat
+
+```bash
+python manage.py runserver
+```
+
+**Başarılı olursa** şöyle bir çıktı göreceksiniz:
+
+```
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+```
+
+### Tarayıcıda Test Et
+
+Tarayıcınızı açın ve şu adrese gidin:
+
+```
+http://127.0.0.1:8000/
+```
+
+**Django roket sayfasını** görüyorsanız tebrikler! 🚀 Kurulum başarılı!
+
+---
+
+## 🗄️ Veritabanı Kurulumu
+
+Django varsayılan olarak SQLite kullanır. İlk migration'ları yapalım:
+
+```bash
+# Sunucuyu durdurun (CTRL + C)
+
+# Migration'ları oluştur
+python manage.py migrate
+```
+
+**Çıktı:**
+```
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  ...
+```
+
+> 💡 **Ne yaptık?** Django'nun varsayılan tablolarını (kullanıcılar, oturumlar vb.) veritabanında oluşturduk.
+
+---
+
+## 👤 Admin Paneli İçin Süper Kullanıcı
+
+```bash
+python manage.py createsuperuser
+```
+
+Sırasıyla şunları soracak:
+
+```
+Username: admin
+Email: admin@example.com
+Password: ••••••••
+Password (again): ••••••••
+```
+
+Şimdi sunucuyu tekrar başlatın:
+
+```bash
+python manage.py runserver
+```
+
+Admin paneline girin:
+
+```
+http://127.0.0.1:8000/admin/
+```
+
+Oluşturduğunuz kullanıcı adı ve şifre ile giriş yapın! 🎉
+
+---
+
+## 📊 Proje Başlatma Akış Şeması
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    DJANGO PROJESİ BAŞLATMA                  │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+                    ┌──────────────────┐
+                    │  Python Kurulu?  │
+                    └──────────────────┘
+                              │
+                              ▼
+                  ┌──────────────────────┐
+                  │  Sanal Ortam Oluştur │
+                  │   python -m venv     │
+                  └──────────────────────┘
+                              │
+                              ▼
+                  ┌──────────────────────┐
+                  │    Aktifleştir       │
+                  │  activate / source   │
+                  └──────────────────────┘
+                              │
+                              ▼
+                  ┌──────────────────────┐
+                  │   Django Kur         │
+                  │  pip install django  │
+                  └──────────────────────┘
+                              │
+                              ▼
+                  ┌──────────────────────┐
+                  │  Proje Oluştur       │
+                  │  startproject        │
+                  └──────────────────────┘
+                              │
+                              ▼
+                  ┌──────────────────────┐
+                  │  Migration Yap       │
+                  │  python manage.py    │
+                  │       migrate        │
+                  └──────────────────────┘
+                              │
+                              ▼
+                  ┌──────────────────────┐
+                  │ Süper Kullanıcı      │
+                  │  createsuperuser     │
+                  └──────────────────────┘
+                              │
+                              ▼
+                  ┌──────────────────────┐
+                  │  Sunucu Başlat       │
+                  │    runserver         │
+                  └──────────────────────┘
+                              │
+                              ▼
+                    ┌──────────────────┐
+                    │  🚀 HAZIR! 🎉   │
+                    └──────────────────┘
+```
 
 ---
 
@@ -418,22 +684,86 @@ def urun_listesi(request):
 
 ## 📖 Komutlar Cheat Sheet
 
+### 🎬 Proje Başlatma
+
 ```bash
-# Proje oluştur
+# Sanal ortam oluştur
+python -m venv sanalortam                    # Windows
+python3 -m venv sanalortam                   # Mac/Linux
+
+# Sanal ortamı aktifleştir
+sanalortam\Scripts\activate                  # Windows
+source sanalortam/bin/activate               # Mac/Linux
+
+# Sanal ortamı deaktif et
+deactivate
+
+# Django kur
+pip install django
+
+# Django versiyonunu kontrol et
+django-admin --version
+```
+
+### 🚀 Proje ve App Yönetimi
+
+```bash
+# Yeni proje oluştur
 django-admin startproject proje_adi
 
-# App oluştur
+# Yeni app oluştur
 python manage.py startapp app_adi
 
 # Sunucuyu başlat
 python manage.py runserver
 
-# Veritabanı migrate
+# Farklı portta başlat
+python manage.py runserver 8080
+```
+
+### 🗄️ Veritabanı İşlemleri
+
+```bash
+# Migration dosyaları oluştur
 python manage.py makemigrations
+
+# Migration'ları uygula
 python manage.py migrate
 
-# Admin kullanıcısı oluştur
+# Hangi migration'lar var göster
+python manage.py showmigrations
+
+# Migration'ı geri al
+python manage.py migrate app_adi 0001
+```
+
+### 👤 Kullanıcı İşlemleri
+
+```bash
+# Süper kullanıcı oluştur
 python manage.py createsuperuser
+
+# Şifre değiştir
+python manage.py changepassword kullanici_adi
+```
+
+### 🔧 Diğer Yararlı Komutlar
+
+```bash
+# Python shell aç
+python manage.py shell
+
+# Tüm paketleri listele
+pip list
+
+# requirements.txt oluştur
+pip freeze > requirements.txt
+
+# requirements.txt'ten kur
+pip install -r requirements.txt
+
+# Django admin komutlarını gör
+python manage.py help
 ```
 
 ---
@@ -475,6 +805,18 @@ python manage.py createsuperuser
 
 ## 🤔 Sık Sorulan Sorular
 
+### S: Sanal ortam neden gerekli?
+**C:** Her proje için ayrı paket versiyonları kullanabilirsiniz. Bir projede Django 4.0, diğerinde Django 5.0 kullanabilirsiniz.
+
+### S: 'django-admin' komutu çalışmıyor?
+**C:** Django kurulu olmayabilir. `pip install django` komutunu çalıştırın ve sanal ortamın aktif olduğundan emin olun.
+
+### S: Sunucu başlatılamıyor, port kullanımda diyor?
+**C:** 8000 portu başka bir program tarafından kullanılıyor. `python manage.py runserver 8080` ile farklı port deneyin.
+
+### S: manage.py bulunamadı hatası?
+**C:** Proje klasörünün içinde olduğunuzdan emin olun: `cd eticaret`
+
 ### S: Template bulunamadı hatası alıyorum?
 **C:** Klasör yapısını kontrol edin: `templates/app_adi/dosya.html`
 
@@ -486,6 +828,9 @@ python manage.py createsuperuser
 
 ### S: Context verisi görünmüyor?
 **C:** Dictionary'deki anahtar (key) ile template'deki değişken adı aynı mı?
+
+### S: Migration hatası alıyorum?
+**C:** `python manage.py makemigrations` komutunu çalıştırdınız mı? Sonra `migrate` yapın.
 
 ---
 
