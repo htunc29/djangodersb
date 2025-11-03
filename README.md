@@ -218,30 +218,9 @@ http://127.0.0.1:8000/
 
 ---
 
-## 🗄️ Veritabanı Kurulumu
 
-Django varsayılan olarak SQLite kullanır. İlk migration'ları yapalım:
 
-```bash
-# Sunucuyu durdurun (CTRL + C)
 
-# Migration'ları oluştur
-python manage.py migrate
-```
-
-**Çıktı:**
-```
-Operations to perform:
-  Apply all migrations: admin, auth, contenttypes, sessions
-Running migrations:
-  Applying contenttypes.0001_initial... OK
-  Applying auth.0001_initial... OK
-  ...
-```
-
-> 💡 **Ne yaptık?** Django'nun varsayılan tablolarını (kullanıcılar, oturumlar vb.) veritabanında oluşturduk.
-
----
 
 
 
@@ -279,19 +258,6 @@ Running migrations:
                   ┌──────────────────────┐
                   │  Proje Oluştur       │
                   │  startproject        │
-                  └──────────────────────┘
-                              │
-                              ▼
-                  ┌──────────────────────┐
-                  │  Migration Yap       │
-                  │  python manage.py    │
-                  │       migrate        │
-                  └──────────────────────┘
-                              │
-                              ▼
-                  ┌──────────────────────┐
-                  │ Süper Kullanıcı      │
-                  │  createsuperuser     │
                   └──────────────────────┘
                               │
                               ▼
