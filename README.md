@@ -51,9 +51,6 @@
    - If-Else Koşulları
    - Filtreler
 
-8. [Kullanıcı Kontrolü](#-kullanıcı-kontrolü-authentication)
-   - Login Kontrolü
-   - Admin Kontrolü
 
 9. [Pratik Örnekler](#-pratik-yapalım)
    - Ürün Listesi
@@ -1233,42 +1230,8 @@ urlpatterns = [
 
 ---
 
-## 👤 Kullanıcı Kontrolü (Authentication)
 
-### Giriş Yapmış mı Kontrol Et
 
-```html
-{% if user.is_authenticated %}
-    <!-- Kullanıcı giriş yapmış -->
-    <div class="hosgeldin">
-        <p>Hoş geldin, {{ user.username }}! 👋</p>
-        <a href="{% url 'logout' %}">Çıkış Yap</a>
-    </div>
-{% else %}
-    <!-- Kullanıcı giriş yapmamış -->
-    <div class="giris">
-        <p>Lütfen giriş yapın 🔒</p>
-        <a href="{% url 'login' %}">Giriş Yap</a>
-        <a href="{% url 'register' %}">Kayıt Ol</a>
-    </div>
-{% endif %}
-```
-
-### Admin mi Kontrol Et
-
-```html
-{% if user.is_staff %}
-    <a href="{% url 'admin:index' %}" class="admin-link">
-        🛠️ Admin Paneli
-    </a>
-{% endif %}
-
-{% if user.is_superuser %}
-    <button class="ozel-buton">⚙️ Süper Kullanıcı İşlemleri</button>
-{% endif %}
-```
-
----
 
 ## 🎓 Pratik Yapalım!
 
