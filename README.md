@@ -1275,31 +1275,6 @@ python manage.py runserver
 python manage.py runserver 8080
 ```
 
-### 🗄️ Veritabanı İşlemleri
-
-```bash
-# Migration dosyaları oluştur
-python manage.py makemigrations
-
-# Migration'ları uygula
-python manage.py migrate
-
-# Hangi migration'lar var göster
-python manage.py showmigrations
-
-# Migration'ı geri al
-python manage.py migrate app_adi 0001
-```
-
-### 👤 Kullanıcı İşlemleri
-
-```bash
-# Süper kullanıcı oluştur
-python manage.py createsuperuser
-
-# Şifre değiştir
-python manage.py changepassword kullanici_adi
-```
 
 ### 🔧 Diğer Yararlı Komutlar
 
