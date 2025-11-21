@@ -1,37 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    {%block baslik%}
-    {%endblock%}
-  </title>
-  {%load static%}
-  <link rel="stylesheet" href="{%static 'css/style.css'%}">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-  <header>
-    <h1>Django Yol</h1>
-    <div class="searchbar">
-      <input type="search" placeholder="Marka yada ürün adı yazınız..." name="" id="">
-    </div>
-    <div class="authbar">
-      <button>Giriş Yap</button>
-      <button>Kayıt Ol</button>
-    </div>
-  </header>
-  <nav>
-    <a href="{%url 'anasayfa' %}">Anasayfa</a>
-    <a href="{% url 'kategori' 'giyim' %}">Giyim</a>
-    <a href="{% url 'kategori' 'elektronik' %}">Elektronik</a>
-    <a href="{% url 'kategori' 'Kozmetik' %}">Kozmetik</a>
-    <a href="{% url 'kategori' 'Ev-esyasi' %}">Ev Eşyası</a>
-  </nav>
+  {%include 'eticaret/menu.html'%}
+
+  <main class="container-md py-4">
   {%block icerik%}
+
   {%endblock%}
+  </main>
 
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
-
 </html>

@@ -1,0 +1,41 @@
+{%extends 'eticaret/base.html'%}
+
+
+{%block icerik%}
+{%if messages%}
+  {%for i in messages%}
+    <div class="alert alert-warning" role="alert">
+     {{i}}
+    </div>
+  {%endfor%}
+{%endif%}
+<form method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Adınız</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="firstname">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Soyadınız</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="lastname">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Kullanıcı adı</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Şifre</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Şifre Tekrar</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password2">
+  </div>
+  <button type="submit" class="btn btn-warning">Kayıt Ol</button>
+</form>
+
+{%endblock%}

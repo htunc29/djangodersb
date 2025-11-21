@@ -19,8 +19,8 @@ from django.urls import path,include
 from . import views
 urlpatterns = [
     path('',views.home,name='anasayfa'),
-    path('<slug:kategori_adi>/',views.category,name="kategori"),
     path('admin/', admin.site.urls),
+    path('accounts/',include('accounts.urls'))
 ]
 # http://127.0.0.1:8000/
 # http://127.0.0.1:8000/urunler
