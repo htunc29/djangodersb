@@ -6,27 +6,24 @@
 
 
 {%block icerik%}
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
+{%if user.is_authenticated%}
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">{{user.first_name}} {{user.last_name}}</div>
   </div>
+  <div class="card-body">
+      <p>Kullanıcı Adı:{{user.username}}</p>
+      <p>Email:{{user.email}}</p>
+      <p>Şifre:{{user.password}}</p>
+      <p>Kayıt Tarihi:{{user.date_joined}}</p>
+      <p>Son Giriş:{{user.last_login}}</p>
+  </div>
+</div>
+{%else%}
+<div class="alert alert-danger">
+  Görüntüleme izniniz yok
+</div>
+{%endif%}
+
 {%endblock%}
